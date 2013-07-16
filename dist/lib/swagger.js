@@ -17,6 +17,9 @@
       if (options == null) {
         options = {};
       }
+      if (options.serverDomain != null) {
+        this.serverDomain = options.serverDomain;
+      }
       if (options.discoveryUrl != null) {
         this.discoveryUrl = options.discoveryUrl;
       }
@@ -227,6 +230,9 @@
           var endpoint, _i, _len, _ref;
           if ((response.basePath != null) && jQuery.trim(response.basePath).length > 0) {
             _this.basePath = response.basePath;
+            if(_this.api.serverDomain !- null){
+              _this.basePath = _this.api.serverDomain + _this.basePath;
+            }
             _this.basePath = _this.basePath.replace(/\/$/, '');
           }
           _this.addModels(response.models);
